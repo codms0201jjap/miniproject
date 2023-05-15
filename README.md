@@ -35,5 +35,5 @@
 개발 환경 : Visual Studio Code, gcc, Windows or macOS
 개발 언어 : C, C++
 ##### 6. 팀소개 및 팀원이 맡은 역할
-안서영 : README 작성, 전반적인 프로그램의 틀 구성 및 조회, 추가 등의 메뉴와 관련된 부분 담당
-권채은 : 프로그램 틀 내부의 세부적인 사항 조율 및 키워드 검색 관련 부분 담당
+안서영 : README 작성, delete, 저장, 로드, 검색 함수 4개 담당
+권채은 : Create, read, update, 메뉴, 
