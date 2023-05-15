@@ -32,10 +32,10 @@
 7. 파일 저장 함수
 0. 프로그램 종료
 ##### 5.개발환경 및 언어
-개발 환경 : Visual Studio Code, gcc, Windows or macOS
+개발 환경 : Visual Studio Code, gcc, Windows or macOS <br/>
 개발 언어 : C, C++
 ##### 6. 팀소개 및 팀원이 맡은 역할
-안서영 : README 작성, delete, 저장, 로드, 검색 함수 4개 담당
+안서영 : README 작성, delete, 저장, 로드, 검색 함수 4개 담당 <br/>
 권채은 : Create, read, update, 메뉴, 통계 함수 4개 담당
 
 
