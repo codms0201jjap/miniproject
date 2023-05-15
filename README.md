@@ -36,4 +36,8 @@
 개발 언어 : C, C++
 ##### 6. 팀소개 및 팀원이 맡은 역할
 안서영 : README 작성, delete, 저장, 로드, 검색 함수 4개 담당
-권채은 : Create, read, update, 메뉴, 
+권채은 : Create, read, update, 메뉴, 통계 함수 4개 담당
+
+
+
+
