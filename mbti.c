@@ -4,7 +4,7 @@
 #define MAX_PEOPLE 100
 
 typedef struct{
-        char mbti[MAX_PEOPLE]; //자신의 mbti
+        char mbti[10]; //자신의 mbti
         char name[100]; //이름
         char department[12]; //학부
         int s_num; //학번
@@ -43,8 +43,8 @@ int createMbti(Mbti *m){
         return 1;
 }
 
-void readMbit(Mbti m){
-        printf("%s %d %s %s %s\n", m->name, m->s_num, m->sex, m->department, m->mbti);
+void readMbti(Mbti m){
+        printf("%s %d %s %s %s\n", m.name, m.s_num, m.sex, m.department, m.mbti);
 }
 
 void listMbti(Mbti *m[], int count){
