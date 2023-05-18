@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct mbti_struct
+typedef struct
 {
-    char mbti[20];//mbti 결과
+    char mbti[10];//mbti 결과
     char name[20];//이름
     char department[20];//학부
     char sex[10];//성별
-    int studentnum;//학번
-} Mbti;
+    char s_id[15];//학번
+} mbti_struct;
 
 int createMbti(struct mbti_struct *s[], int number); // mbti 추가 함수 
 int updateMbti(struct mbti_struct *s[], int number); // mbti 수정 함수 
