@@ -56,3 +56,18 @@ void listMbti(Mbti *m[], int count){
     }
     printf("\n");
 }
+
+int updateMbti(Mbti *m){
+        printf("이름은? ");
+        scanf("%s", m->name);
+        printf("성별은? ");
+        scanf("%s", m->sex);
+        printf("학부는? ");
+        scanf("%s", m->department);
+        printf("학번은? ");
+        scanf("%d", &m->s_num);
+        printf("MBTI는? ");
+        scanf("%s", m->mbti);
+        printf("=> 수정됨!\n");
+        return 1;
+}
