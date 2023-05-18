@@ -42,3 +42,17 @@ int createMbti(Mbti *m){
 	printf("=> 추가됨!\n");
 	return 1;
 }
+
+void readMbit(Mbti m){
+	printf("%s %d %s %s %s\n", m->name, m->s_num, m->sex, m->department, m->mbti);
+}
+
+void listMbti(Mbti *m[], int count){
+    printf("\nNo Name Student_number Sex Department Mbti\n");
+    printf("================================================\n");
+    for(int i = 0; i < count; i++){
+        printf("%-2d", i+1);
+        readMbti(*m[i]);
+    }
+    printf("\n");
+}
