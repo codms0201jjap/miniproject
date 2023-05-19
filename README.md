@@ -35,7 +35,7 @@
 개발 환경 : Visual Studio Code, gcc, Windows or macOS <br/>
 개발 언어 : C, C++
 ##### 6. 팀소개 및 팀원이 맡은 역할
-안서영 : README 작성, elete, 데이터 저장, 데이터 로드, 키워드 검색 함수 4개 담당 <br/>
+안서영 : README 작성, main, delete, 데이터 저장, 데이터 로드, 키워드 검색 함수 4개 담당 <br/>
 권채은 : Create, read, list, update, 메뉴, 통계 함수 3개, mbti별 간략한 정보 제공 담당 
 
 
