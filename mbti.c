@@ -217,3 +217,19 @@ void searchAssignment3(mbti_struct *s[], int number) // mbti
     if(scnt == 0) printf("=> 검색한 데이터가 없습니다. ");
     printf("\n");
         }
+
+void printMbtiInfo(){
+	char file[10]; //파일이름
+	char info[16][10000];
+	int i = 0;
+	FILE* data;
+	printf("MBTI를 입력하시오. ");
+	scanf("%s", file);
+	data = fopen(file, "r");
+	while(!feof(file)){
+		int temp = fscanf(file, "%s", info[i]);
+		if(temp <= 0) break;
+		printf("%s\n", info[i]);
+		i++;
+}	
+	
