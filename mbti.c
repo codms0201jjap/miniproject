@@ -233,5 +233,38 @@ void printMbtiInfo(){
 		printf("%s\n", info[i]);
 		i++;
 	}
-}	
+}
+
+void findBest(mbti_struct *m, int count){
+    int num[16] = {0};
+    char temp[10];
+    char department[100];
+    char typename[16][10] = {"ESTP", "ESTJ", "ESFP", "ESFJ", "ENTP", "ENTJ", "ENFP", "ENFJ",
+     "ISTP", "ISTJ", "ISFP", "ISFJ", "INTP", "INTJ", "INFP", "INFJ"};
+
+    for(int i=0; i<count; i++){
+        for(int j=0; j<16; j++){
+            if(strstr(m[i]->mbti, typename[j])){
+                num[j]++;
+            }
+        }
+    }
+
+    for(int i=0; i<count; i++){
+        for(int j=0; j<count-1-i; j++){
+            if(num[j]<num[j+1]){
+                temp = typename[j];
+                typename[j] = typename[j+1];
+                typename[j+1] = temp;
+            }
+        }
+    }
+
+    printf("Best MBTI\n");
+    printf("---------------------\n");
+    for(int i=0; i<16; i++){
+       printf("%d. %s\n", i+1, typename[i]);
+    }
+    
+}
 	
