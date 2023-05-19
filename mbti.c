@@ -1,4 +1,4 @@
-#include "main.h"
+#include "mbti.h"
 
 int selectMenu() {
     int menu;
