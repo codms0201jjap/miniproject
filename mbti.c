@@ -225,6 +225,7 @@ void printMbtiInfo(){
 	FILE* data;
 	printf("MBTI를 입력하시오. ");
 	scanf("%s", file);
+	strcat(file,  ".txt");
 	data = fopen(file, "r");
 	while(!feof(file)){
 		int temp = fscanf(file, "%s", info[i]);
