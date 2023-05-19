@@ -38,15 +38,15 @@ int createMbti(mbti_struct *s[], int number){
 }
 
 void readMbti(mbti_struct *s[]){
-        printf("%s %s %s %s %s\n", m.name, m.s_id, m.sex, m.department, m.mbti);
+        printf("%s %d %s %s %s\n", s.name, s.s_id, s.sex, s.department, s.mbti);
 }
 
 void listMbti(mbti_struct *s[], int number){
     printf("\nNo Name Student_number Sex Department Mbti\n");
     printf("================================================\n");
-    for(int i = 0; i < count; i++){
+    for(int i = 0; i < number; i++){
         printf("%-2d", i+1);
-        readMbti(*m[i]);
+        readMbti(*s[i]);
     }
     printf("\n");
 }
@@ -117,7 +117,7 @@ int loadData(mbti_struct *s[])
         while (!feof(fp))
         {
             s[count] = (mbti_struct *)malloc(sizeof(mbti_struct));
-            int ret = fscanf(fp, "%[^\n]\n%s\n%s\n%s\n", s[count]->department, s[count]->name, s[count]->s_id, s[count]->mbti);
+            int ret = fscanf(fp, "%[^\n]\n%s\n%d\n%s\n", s[count]->department, s[count]->name, s[count]->s_id, s[count]->mbti);
             if (ret < 2)
                 continue;
             count++;
@@ -252,15 +252,15 @@ void findBest(mbti_struct *s[], int number){
     char typename[16][10] = {"ESTP", "ESTJ", "ESFP", "ESFJ", "ENTP", "ENTJ", "ENFP", "ENFJ",
      "ISTP", "ISTJ", "ISFP", "ISFJ", "INTP", "INTJ", "INFP", "INFJ"};
 
-    for(int i=0; i<count; i++){
+    for(int i=0; i<number; i++){
         for(int j=0; j<16; j++){
-            if(strstr(m[i]->mbti, typename[j])){
+            if(strstr(s[i]->mbti, typename[j])){
                 num[j]++;
             }
         }
     }
 
-    for(int i=0; i<count; i++){
+    for(int i=0; i<number; i++){
         for(int j=0; j<count-1-i; j++){
             if(num[j]<num[j+1]){
                 temp = typename[j];
@@ -289,10 +289,10 @@ void graphSex(mbti_struct *s[], int number){
     Clear();
 
     printf("Sex: %s", sex);
-    for(int i=0; i<count; i++){
-        if(strstr(m[i]->sex, sex)){
+    for(int i=0; i<number; i++){
+        if(strstr(s[i]->sex, sex)){
             for(int j=0; j<16; j++){
-                if(strstr(m[i]->mbti, typename[j])){
+                if(strstr(s[i]->mbti, typename[j])){
                     num[j]++;
                 }
             }
@@ -318,10 +318,10 @@ void graphDepartment(mbti_struct *s[], int number){
     Clear();
 
     printf("Department: %s", department);
-    for(int i=0; i<count; i++){
-        if(strstr(m[i]->department, department)){
+    for(int i=0; i<number; i++){
+        if(strstr(s[i]->department, department)){
             for(int j=0; j<16; j++){
-                if(strstr(m[i]->mbti, typename[j])){
+                if(strstr(s[i]->mbti, typename[j])){
                     num[j]++;
                 }
             }
