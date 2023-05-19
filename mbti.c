@@ -231,5 +231,6 @@ void printMbtiInfo(){
 		if(temp <= 0) break;
 		printf("%s\n", info[i]);
 		i++;
+	}
 }	
 	
