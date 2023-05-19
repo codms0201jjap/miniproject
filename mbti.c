@@ -267,4 +267,33 @@ void findBest(mbti_struct *m, int count){
     }
     
 }
+
+void graphSex(mbti_struct *m, int count){
+    int num[16] = {0};
+    char sex[100];
+    char typename[16][10] = {"ESTP", "ESTJ", "ESFP", "ESFJ", "ENTP", "ENTJ", "ENFP", "ENFJ",
+     "ISTP", "ISTJ", "ISFP", "ISFJ", "INTP", "INTJ", "INFP", "INFJ"};
+
+    printf("검색할 성별은? ");
+    scanf("%[^\n]", sex);
+    Clear();
+
+    printf("Sex: %s", sex);
+    for(int i=0; i<count; i++){
+        if(strstr(m[i]->sex, sex)){
+            for(int j=0; j<16; j++){
+                if(strstr(m[i]->mbti, typename[j])){
+                    num[j]++;
+                }
+            }
+        }
+    }
+
+    for(int i=0; i<16; i++){
+        printf("%s | ", typename[i]);
+        for(int j=0; j<num[i]; j++) printf("*");
+        printf("\n");
+    }
+
+}
 	
