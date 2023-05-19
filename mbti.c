@@ -66,24 +66,6 @@ void Clear(void)
     while (getchar() != '\n');
 }
 
-int selectMbti()
-{
-    int menu;
-    printf("\n");
-    printf("1. mbti 추가\n");
-    printf("2. mbti 조회\n");
-    printf("3. mbti 수정\n");
-    printf("4. mbti 삭제\n");
-    printf("5. mbti 저장\n");
-    printf("6. mbti 검색\n");
-    printf("0. 종료\n");
-    printf("\n=> 원하는 항목 : ");
-    scanf("%d", &menu);
-    printf("\n");
-
-    return menu;
-}
-
 int deleteMbti(mbti_struct *s[], int number)
 {
     int index;
