@@ -17,26 +17,31 @@ int selectMenu() {
     return menu;
 }
 
-int createMbti(mbti_struct *m){
+int createMbti(mbti_struct *s[], int number){
         printf("이름은? ");
-        scanf("%s", m->name);
+        scanf("[^\n]", s[number]->name);
+	Clear();
         printf("성별은? ");
-        scanf("%s", m->sex);
+        scanf("[^\n]", s[number]->sex);
+	Clear();
         printf("학부는? ");
-        scanf("%s", m->department);
+        scanf("[^\n]", s[number]->department);
+	Clear();
         printf("학번은? ");
-        scanf("%s", &m->s_id);
+        scanf("%d", &s[number]->s_id);
         printf("MBTI는? ");
-        scanf("%s", m->mbti);
+        scanf("[^\n]", s[number]->mbti);
+	Clear();
+	number++;
         printf("=> 추가됨!\n");
         return 1;
 }
 
-void readMbti(mbti_struct m){
+void readMbti(mbti_struct *s[]){
         printf("%s %s %s %s %s\n", m.name, m.s_id, m.sex, m.department, m.mbti);
 }
 
-void listMbti(mbti_struct *m[], int count){
+void listMbti(mbti_struct *s[], int number){
     printf("\nNo Name Student_number Sex Department Mbti\n");
     printf("================================================\n");
     for(int i = 0; i < count; i++){
@@ -46,17 +51,22 @@ void listMbti(mbti_struct *m[], int count){
     printf("\n");
 }
 
-int updateMbti(mbti_struct *m){
+int updateMbti(mbti_struct *s[], int number){
         printf("이름은? ");
-        scanf("%s", m->name);
+        scanf("[^\n]", s[number]->name);
+        Clear();
         printf("성별은? ");
-        scanf("%s", m->sex);
+        scanf("[^\n]", s[number]->sex);
+        Clear();
         printf("학부는? ");
-        scanf("%s", m->department);
+        scanf("[^\n]", s[number]->department);
+        Clear();
         printf("학번은? ");
-        scanf("%s", &m->s_id);
+        scanf("%d", &s[number]->s_id);
         printf("MBTI는? ");
-        scanf("%s", m->mbti);
+        scanf("[^\n]", s[number]->mbti);
+        Clear();
+        number++;
         printf("=> 수정됨!\n");
         return 1;
 }
@@ -235,7 +245,7 @@ void printMbtiInfo(){
 	}
 }
 
-void findBest(mbti_struct *m, int count){
+void findBest(mbti_struct *s[], int number){
     int num[16] = {0};
     char temp[10];
     char department[100];
@@ -268,7 +278,7 @@ void findBest(mbti_struct *m, int count){
     
 }
 
-void graphSex(mbti_struct *m, int count){
+void graphSex(mbti_struct *s[], int number){
     int num[16] = {0};
     char sex[100];
     char typename[16][10] = {"ESTP", "ESTJ", "ESFP", "ESFJ", "ENTP", "ENTJ", "ENFP", "ENFJ",
@@ -297,7 +307,7 @@ void graphSex(mbti_struct *m, int count){
 
 }
 
-void graphDepartment(mbti_struct *m, int count){
+void graphDepartment(mbti_struct *s[], int number){
     int num[16]= {0};
     char department[100];
     char typename[16][10] = {"ESTP", "ESTJ", "ESFP", "ESFJ", "ENTP", "ENTJ", "ENFP", "ENFJ",
