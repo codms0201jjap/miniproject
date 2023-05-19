@@ -1,15 +1,15 @@
-#include "main.h"
+#include "mbti.h"
 
 int main()
 {
-    struct mbti_struct *s[20];
+    mbti_struct *s[20];
     int number = 0;
     int menu, choice = 0;
 
     number = loadData(s);
 
     while (1){
-        menu = selectMbti();
+        menu = selectMenu();
         Clear();
         if (menu == 0)
             break;
@@ -29,19 +29,19 @@ int main()
                 scanf("%d", &choice);
                 if (choice == 1){
                     Clear();
-                    searchAssignment1(s, number);
+                    searchMbti1(s, number);
                     break;
                 }
                 else if (choice == 2) {
-                    searchAssignment2(s, number);
+                    searchMbti2(s, number);
                     break;
                 }
                 else if (choice == 3){
-                    searchAssignment3(s, number);
+                    searchMbti3(s, number);
                     break;
                 }
                 else if (choice == 4){
-                    searchAssignment4(s, number);
+                    searchMbti4(s, number);
                     break;
                 }
                 else{
@@ -81,6 +81,8 @@ int main()
     }
     printf("=> 종료\n");
 
-    free(*s);
+    for(int i=0; i<number; i++){
+	    free(s[i]);
+	}
     return 0;
 }
