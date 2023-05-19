@@ -8,8 +8,7 @@ int main()
 
     number = loadData(s);
 
-    while (1)
-    {
+    while (1){
         menu = selectMbti();
         Clear();
         if (menu == 0)
@@ -24,40 +23,61 @@ int main()
             number = deleteMbti(s, number);
         else if (menu == 5)
             saveMbti(s, number);
-        else if (menu == 6)
-        {
-            while (1)
-            {
+        else if (menu == 6){
+            while (1){
                 printf("기능(1:학부, 2:이름, 3:mbti, 4:학번) : ");
                 scanf("%d", &choice);
-                if (choice == 1)
-                {
+                if (choice == 1){
                     Clear();
                     searchAssignment1(s, number);
                     break;
                 }
-                else if (choice == 2)
-                {
+                else if (choice == 2) {
                     searchAssignment2(s, number);
                     break;
                 }
-                else if (choice == 3)
-                {
+                else if (choice == 3){
                     searchAssignment3(s, number);
                     break;
                 }
-                else if (choice == 4)
-                {
+                else if (choice == 4){
                     searchAssignment4(s, number);
                     break;
                 }
-                else
-                {
+                else{
                     printf("기능(1:학부, 2:이름, 3:mbti, 4:학번) : ");
                     scanf("%d", &choice);
                 }
             }
         }
+	else if (menu == 7){
+		while(1){
+			printf("통계 결과 (1. 순위, 2. 학부 통계, 3. 성별 통계) : ");
+			scanf("%d", &choice);
+			if(choice == 1){
+				Clear();
+				findBest(s, number);
+				break;
+			}
+			else if(choice == 2){
+				Clear();
+				graphDepartment(s, number);
+				break;
+			}
+			else if(choice == 3){
+				Clear();
+				graphSex(s, number);
+				break;
+			}
+			else{
+				printf("통계 결과 (1. 순위, 2. 학부 통계, 3. 성별 통계) : ");
+				scanf("%d", &choice);
+			}
+		}
+	}
+	else if (menu == 8){
+		printMbtiInfo();
+	}
     }
     printf("=> 종료\n");
 
