@@ -227,23 +227,22 @@ void searchMbti3(mbti_struct *s[], int number) // mbti
         }
 
 void printMbtiInfo(){
-	char file[10]; //파일이름
-	char info[16][10000];
-	int i = 0;
+	char file[20]; //파일이름
 	FILE* data;
+
 	printf("MBTI를 입력하시오. ");
 	scanf("%s", file);
 	strcat(file,  ".txt");
+	
 	data = fopen(file, "r");
 	if(data == NULL){
 		printf("파일을 열 수 없습니다.\n");
 		return;
 	}
-	while(!feof(data)){
-		int temp = fscanf(data, "%s", info[i]);
-		if(temp <= 0) break;
-		printf("%s\n", info[i]);
-		i++;
+	
+	char line[1000];
+	while(fgets(line, sizeof(line), data) != NULL){
+		printf("%s", line);
 	}
 	fclose(data);
 }
