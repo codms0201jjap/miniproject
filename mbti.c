@@ -198,7 +198,7 @@ void searchMbti2(mbti_struct *s[], int number) // 이름
 
 void searchMbti4(mbti_struct *s[], int number) // 학번 
 {
-    long long student_id=0;
+    char student_id[50];
     int scnt = 0;
     printf("\n검색할 학번은 : ");
     scanf("%s", student_id);
