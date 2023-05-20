@@ -29,7 +29,7 @@ int createMbti(mbti_struct *s[], int number){
         scanf("%[^\n]", s[number]->department);
 	getchar();
         printf("학번은? ");
-        scanf("%lld", &s[number]->s_id);
+        scanf("%s", s[number]->s_id);
 	getchar();
         printf("MBTI는? ");
         scanf("%[^\n]", s[number]->mbti);
@@ -40,10 +40,12 @@ int createMbti(mbti_struct *s[], int number){
 }
 
 void readMbti(mbti_struct *s[], int number) {
-    printf("\nNo  Name            Student_number  Sex     Department  MBTI\n");
-    printf("==============================================================\n");
+    printf("\n================================================================\n");
+            printf("NO.     학부명         이름    학번  mbti\n");
+            printf("----------------------------------------------------------------\n");
+
     for (int i = 0; i < number; i++) {
-        printf("%-3d %-15s %-15lld %-7s %-11s %s\n", i + 1, s[i]->name, s[i]->s_id, s[i]->sex, s[i]->department, s[i]->mbti);
+        printf("%-3d %-15s %-15s %-7s %-11s %s\n", i + 1, s[i]->name, s[i]->s_id, s[i]->sex, s[i]->department, s[i]->mbti);
     }
     printf("\n");
 }
@@ -69,7 +71,7 @@ updateMbti(mbti_struct *s[], int number){
         scanf("%[^\n]", s[i]->department);
         getchar();
         printf("학번은? ");
-        scanf("%lld", &s[i]->s_id);
+        scanf("%s", s[i]->s_id);
 	getchar();
         printf("MBTI는? ");
         scanf("%[^\n]", s[i]->mbti);
@@ -113,7 +115,7 @@ void saveMbti(mbti_struct *s[], int number)
 
     for (int i = 0; i < number; i++)
     {
-        fprintf(fp, "%s\n%s\n%lln\n%s\n", s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
+        fprintf(fp, "%s\n%s\n%s\n%s\n", s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
     }
     fclose(fp);
     printf("=> 저장되었습니다.\n");
@@ -129,7 +131,7 @@ int loadData(mbti_struct *s[])
         while (!feof(fp))
         {
             s[count] = (mbti_struct *)malloc(sizeof(mbti_struct));
-            int ret = fscanf(fp, "%[^\n]\n%s\n%lln\n%s\n", s[count]->department, s[count]->name, s[count]->s_id, s[count]->mbti);
+            int ret = fscanf(fp, "%[^\n]\n%s\n%s\n%s\n", s[count]->department, s[count]->name, s[count]->s_id, s[count]->mbti);
             if (ret < 2)
                 continue;
             count++;
@@ -162,7 +164,7 @@ void searchMbti1(mbti_struct *s[], int number) // 학부 검색
     {
         if (strstr(s[i]->department, search))
         {
-            printf("%d.     %-15s  %-4s     %-4lln  %s\n", i + 1, s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
+            printf("%d.     %-15s  %-4s     %-4s  %s\n", i + 1, s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
             scnt ++;
             }
     }
@@ -186,7 +188,7 @@ void searchMbti2(mbti_struct *s[], int number) // 이름
     {
         if (strstr(s[i]->name, search_name))
         {
-            printf("%d.     %-15s  %-4s     %-4lln  %s\n", i + 1, s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
+            printf("%d.     %-15s  %-4s     %-4s  %s\n", i + 1, s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
             scnt ++;
             }
     }
@@ -199,7 +201,7 @@ void searchMbti4(mbti_struct *s[], int number) // 학번
     long long student_id=0;
     int scnt = 0;
     printf("\n검색할 학번은 : ");
-    scanf("%lld", &student_id);
+    scanf("%s", student_id);
 
     printf("\n================================================================\n");
             printf("NO.     학부명         이름    학번  mbti\n");
@@ -207,8 +209,8 @@ void searchMbti4(mbti_struct *s[], int number) // 학번
 
     for (int i = 0; i < number; i++)
     {
-        if(s[i]->s_id == student_id){
-            printf("%d.     %-15s  %-4s     %-4lln  %s\n", i + 1, s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
+        if(strstr(s[i]->s_id , student_id)){
+            printf("%d.     %-15s  %-4s     %-4s  %s\n", i + 1, s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
             scnt ++;
             }
     }
@@ -232,7 +234,7 @@ void searchMbti3(mbti_struct *s[], int number) // mbti
     {
         if (strstr(s[i]->mbti, search))
         {
-            printf("%d.     %-15s  %-4s     %-4lln  %s\n", i + 1, s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
+            printf("%d.     %-15s  %-4s     %-4s  %s\n", i + 1, s[i]->department, s[i]->name, s[i]->s_id, s[i]->mbti);
             scnt ++;
             }
     }
