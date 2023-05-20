@@ -18,7 +18,7 @@ int main()
         else if (menu == 2)
             readMbti(s, number);
         else if (menu == 3)
-            number = updateMbti(s, number);
+            updateMbti(s, number);
         else if (menu == 4)
             number = deleteMbti(s, number);
         else if (menu == 5)

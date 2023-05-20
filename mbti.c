@@ -48,25 +48,39 @@ void readMbti(mbti_struct *s[], int number) {
     printf("\n");
 }
 
-int updateMbti(mbti_struct *s[], int number){
+updateMbti(mbti_struct *s[], int number){
+	char name[100];
+	int found = 0;
+
+	printf("수정할 이름은? ");
+	scanf("%[^\n]", name);
+	getchar();
+
+	for(int i=0; i<number; i++){
+		if(strcmp(s[i]->name, name) == 0){
+			found = 1;
         printf("이름은? ");
-        scanf("%[^\n]", s[number]->name);
+        scanf("%[^\n]", s[i]->name);
         getchar();
         printf("성별은? ");
-        scanf("%[^\n]", s[number]->sex);
+        scanf("%[^\n]", s[i]->sex);
         getchar();
         printf("학부는? ");
-        scanf("%[^\n]", s[number]->department);
+        scanf("%[^\n]", s[i]->department);
         getchar();
         printf("학번은? ");
-        scanf("%lld", &s[number]->s_id);
+        scanf("%lld", &s[i]->s_id);
 	getchar();
         printf("MBTI는? ");
-        scanf("%[^\n]", s[number]->mbti);
+        scanf("%[^\n]", s[i]->mbti);
         getchar();
-        number++;
         printf("=> 수정됨!\n");
-        return;
+	break;
+	}
+	}
+	if(!found){
+		printf("일치하는 정보가 없습니다.\n");
+	}
 }
 
 void Clear(void)
