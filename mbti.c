@@ -241,6 +241,7 @@ void printMbtiInfo(){
 	}
 	
 	char line[1000];
+	printf("\n");
 	while(fgets(line, sizeof(line), data) != NULL){
 		printf("%s", line);
 	}
