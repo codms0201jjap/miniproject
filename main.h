@@ -8,7 +8,7 @@ typedef struct
     char name[20];//이름
     char department[20];//학부
     char sex[10];//성별
-    char s_id[100];//학번
+    char s_id[50];//학번
 } mbti_struct;
 
 int createMbti(mbti_struct *s[], int number); // mbti 추가 함수 
