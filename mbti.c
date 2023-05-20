@@ -50,7 +50,7 @@ void readMbti(mbti_struct *s[], int number) {
     printf("\n");
 }
 
-updateMbti(mbti_struct *s[], int number){
+void updateMbti(mbti_struct *s[], int number){
 	char name[100];
 	int found = 0;
 
