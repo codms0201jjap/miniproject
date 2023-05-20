@@ -249,16 +249,14 @@ void printMbtiInfo(){
 }
 
 void findBest(mbti_struct *s[], int number){
-    int num[16] = {0};
-    char temp[10];
-    char department[100];
+    int count[16] = {0};
     char typename[16][10] = {"ESTP", "ESTJ", "ESFP", "ESFJ", "ENTP", "ENTJ", "ENFP", "ENFJ",
      "ISTP", "ISTJ", "ISFP", "ISFJ", "INTP", "INTJ", "INFP", "INFJ"};
 
     for(int i=0; i<number; i++){
         for(int j=0; j<16; j++){
-            if(strcmp(s[i]->mbti, typename[j])){
-                num[j]++;
+            if(strcmp(s[i]->mbti, typename[j]) == 0){
+                count[j]++;
 		break;
             }
         }
@@ -266,11 +264,15 @@ void findBest(mbti_struct *s[], int number){
 
     for(int i=0; i<16; i++){
         for(int j=0; j<16-1-i; j++){
-            if(num[j]<num[j+1]){
+            if(count[j]<count[j+1]){
+		int temp = count[j];
+		count[i] = count[j+1];
+		count[j+1] = temp;
 
-                strcpy(temp, typename[j]);
+		char tempType[5];
+                strcpy(tempType, typename[j]);
                 strcpy(typename[j], typename[j+1]);
-                strcpy(typename[j+1], temp);
+                strcpy(typename[j+1], tempType);
             }
         }
     }
@@ -293,7 +295,7 @@ void graphSex(mbti_struct *s[], int number){
     scanf(" %[^\n]", sex);
     Clear();
 
-    printf("Sex: %s", sex);
+    printf("Sex: %s\n", sex);
     for(int i=0; i<number; i++){
         if(strstr(s[i]->sex, sex)){
             for(int j=0; j<16; j++){
@@ -322,7 +324,7 @@ void graphDepartment(mbti_struct *s[], int number){
     scanf(" %[^\n]", department);
     Clear();
 
-    printf("Department: %s", department);
+    printf("Department: %s\n", department);
     int found = 0;
     for(int i=0; i<number; i++){
         if(strstr(s[i]->department, department)){
