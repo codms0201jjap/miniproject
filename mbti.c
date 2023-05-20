@@ -266,7 +266,7 @@ void findBest(mbti_struct *s[], int number){
         for(int j=0; j<16-1-i; j++){
             if(count[j]<count[j+1]){
 		int temp = count[j];
-		count[i] = count[j+1];
+		count[j] = count[j+1];
 		count[j+1] = temp;
 
 		char tempType[5];
