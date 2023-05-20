@@ -12,7 +12,7 @@ typedef struct
 } mbti_struct;
 
 int createMbti(mbti_struct *s[], int number); // mbti 추가 함수 
-void updateMbti(mbti_struct *s[]); // mbti 수정 함수 
+void updateMbti(mbti_struct *s[], int number); // mbti 수정 함수 
 int deleteMbti(mbti_struct *s[], int number); // mbti 삭제 함수 
 int loadData(mbti_struct *s[]); // 데이터 로드 해오는 함수
 void readMbti(mbti_struct *s[]);    // 정보 출력 함수 (mbti 조회)
