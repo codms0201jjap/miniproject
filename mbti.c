@@ -41,12 +41,13 @@ int createMbti(mbti_struct *s[], int number){
 
 void readMbti(mbti_struct *s[], int number) {
     printf("\n================================================================\n");
-            printf("NO.     학부명         이름    학번  mbti\n");
-            printf("----------------------------------------------------------------\n");
+    printf("NO.   학부명          이름         성별   학번    mbti\n");
+    printf("----------------------------------------------------------------\n");
 
     for (int i = 0; i < number; i++) {
-        printf("%-3d %-15s %-15s %-7s %-11s %s\n", i + 1, s[i]->name, s[i]->s_id, s[i]->sex, s[i]->department, s[i]->mbti);
+        printf("%-4d %-15s %-17s %-8s %-9s %s\n", i + 1, s[i]->department, s[i]->name, s[i]->sex, s[i]->s_id, s[i]->mbti);
     }
+
     printf("\n");
 }
 
@@ -293,7 +294,7 @@ void findBest(mbti_struct *s[], int number){
         }
     }
 
-    printf("Best MBTI\n");
+    printf("MBTI 분포도 순위\n");
     printf("---------------------\n");
     for(int i=0; i<16; i++){
        printf("%d. %s\n", i+1, typename[i]);
@@ -311,7 +312,7 @@ void graphSex(mbti_struct *s[], int number){
     scanf(" %[^\n]", sex);
     Clear();
 
-    printf("Sex: %s\n", sex);
+    printf("성별: %s\n", sex);
     for(int i=0; i<number; i++){
         if(strstr(s[i]->sex, sex)){
             for(int j=0; j<16; j++){
@@ -340,7 +341,7 @@ void graphDepartment(mbti_struct *s[], int number){
     scanf(" %[^\n]", department);
     Clear();
 
-    printf("Department: %s\n", department);
+    printf("학부명: %s\n", department);
     int found = 0;
     for(int i=0; i<number; i++){
         if(strstr(s[i]->department, department)){
