@@ -247,7 +247,7 @@ void printMbtiInfo(){
 	char file[20]; //파일이름
 	FILE* data;
 
-	printf("MBTI를 입력하시오. ");
+	printf("MBTI를 입력하시오.(대문자로 입력해주세요) ");
 	scanf("%s", file);
 	strcat(file,  ".txt");
 	
