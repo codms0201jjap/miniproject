@@ -44,7 +44,7 @@ void readMbti(mbti_struct *s[], int number) {
     printf("NO.   학부명          이름         성별      학번        mbti\n");
     printf("----------------------------------------------------------------\n");
     for (int i = 0; i < number; i++) {
-        printf("%-4d %-15s %-17s %-10s %-8s %s\n", i + 1, s[i]->department, s[i]->name, s[i]->sex, s[i]->s_id, s[i]->mbti);
+        printf("%-4d %[^\n] %-17s %-10s %-8s %s\n", i + 1, s[i]->department, s[i]->name, s[i]->sex, s[i]->s_id, s[i]->mbti);
     }
     printf("\n");
 }
@@ -61,19 +61,19 @@ void updateMbti(mbti_struct *s[], int number){
 		if(strcmp(s[i]->name, name) == 0){
 			found = 1;
         printf("이름은? ");
-        scanf("%[^\n]", s[i]->name);
+        scanf("%s", s[i]->name);
         getchar();
         printf("성별은? ");
-        scanf("%[^\n]", s[i]->sex);
+        scanf("%s", s[i]->sex);
         getchar();
         printf("학부는? ");
-        scanf("%[^\n]", s[i]->department);
+        scanf("%s", s[i]->department);
         getchar();
         printf("학번은? ");
         scanf("%s", s[i]->s_id);
 	getchar();
         printf("MBTI는? ");
-        scanf("%[^\n]", s[i]->mbti);
+        scanf("%s", s[i]->mbti);
         getchar();
         printf("=> 수정됨!\n");
 	break;
