@@ -21,7 +21,7 @@ void saveMbti(mbti_struct *s[], int number);    // 파일 저장 함수 (mbti �
 void searchMbti1(mbti_struct *s[], int number);//검색 기능1(학부)
 void searchMbti2(mbti_struct *s[], int number);//검색 기능2(이름)
 void searchMbti3(mbti_struct *s[], int number);//검색 기능3(mbti별)
-void searchMbti4(mbti_struct *s[], int number);//검색 기능4(학번번)
+void searchMbti4(mbti_struct *s[], int number);//검색 기능4(학번)
 void printMbtiInfo(); // MBTI별 정보 알려주는 함수
 void findBest(mbti_struct *s[], int number); // 현재 가지고 있는 정보에서 높은 순서대로 mbti 랭킹 알려주는 함수
 void graphSex(mbti_struct *s[], int number); // 성별 별 MBTI 분포 알려주는 함수
